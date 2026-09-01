@@ -1,32 +1,75 @@
-/* ACA Interlagos — tipografías según Figma / QA visual
+/* ACA Interlagos — tipografías según Figma
    Titulares: Eurostile LT Std
-   Resto de la interfaz y contenidos: Futura Std
+   Resto: Futura Std
 
-   No se incluyen archivos de fuente en el repo. Los @font-face usan fuentes
-   instaladas localmente cuando están disponibles y caen a fallbacks del sistema.
+   Estas reglas usan variantes locales exactas cuando la fuente está instalada.
+   Para garantizar estas familias en cualquier dispositivo necesitaremos los
+   webfonts licenciados de ACA (woff/woff2) o el servicio webfont que utilicen.
 */
 
+/* EUROSTILE LT STD */
 @font-face {
   font-family: "ACA Eurostile";
-  src: local("Eurostile LT Std"), local("EurostileLTStd"), local("Eurostile");
+  src: local("Eurostile LT Std Bold"),
+       local("EurostileLTStd-Bold"),
+       local("Eurostile LT Std");
   font-style: normal;
-  font-weight: 400 900;
+  font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: "ACA Eurostile";
-  src: local("Eurostile LT Std Bold Oblique"), local("EurostileLTStd-BoldOblique"), local("Eurostile Bold Oblique");
+  src: local("Eurostile LT Std Bold Oblique"),
+       local("EurostileLTStd-BoldOblique"),
+       local("Eurostile LT Std Oblique"),
+       local("EurostileLTStd-Oblique");
   font-style: italic;
-  font-weight: 700 900;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* FUTURA STD */
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Light"),
+       local("FuturaStd-Light"),
+       local("Futura LT Light"),
+       local("Futura Light");
+  font-style: normal;
+  font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
   font-family: "ACA Futura";
-  src: local("Futura Std"), local("FuturaStd"), local("Futura");
+  src: local("Futura Std Book"),
+       local("FuturaStd-Book"),
+       local("Futura Std"),
+       local("FuturaStd"),
+       local("Futura");
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Medium"),
+       local("FuturaStd-Medium"),
+       local("Futura Medium");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Bold"),
+       local("FuturaStd-Bold"),
+       local("Futura Bold");
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -35,8 +78,12 @@
   --aca-futura: "ACA Futura", "Futura Std", Futura, "Avenir Next", Arial, sans-serif;
 }
 
-/* Todo el contenido parte de Futura. */
-body,
+html,
+body {
+  font-family: var(--aca-futura);
+}
+
+/* Todo lo no titular usa Futura. */
 p,
 span,
 a,
@@ -50,14 +97,19 @@ li,
 small,
 b,
 strong,
-em {
+em,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--aca-futura) !important;
 }
 
-/* Titulares principales de campaña. */
+/* Titulares principales y destacados de campaña. */
 h1,
 h2,
 .hero h1,
+.hero__content > p,
 .gate__head h2,
 .section-head h2,
 .path-copy h2,
@@ -68,9 +120,14 @@ h2,
 .prize-hero__copy strong,
 .timeline__finish {
   font-family: var(--aca-eurostile) !important;
+  font-weight: 700;
 }
 
-/* Pesos del contenido como en el Figma. */
+.hero h1 {
+  font-style: italic;
+}
+
+/* Pesos Futura según el Figma. */
 .timeline__step h3,
 .prize-card h3,
 .steps b,
@@ -80,17 +137,24 @@ h2,
 }
 
 .timeline__step p,
-.prize-card p,
+.prize-card p {
+  font-family: var(--aca-futura) !important;
+  font-weight: 300;
+}
+
 .section-head p,
 .path-copy > p,
 .ref-intro p,
 .member-why p {
   font-family: var(--aca-futura) !important;
+  font-weight: 500;
 }
 
 .gate-btn,
 .action,
 .sticky-choice,
-.sticky-choice button {
+.sticky-choice button,
+.contact input,
+.contact button {
   font-family: var(--aca-futura) !important;
 }
