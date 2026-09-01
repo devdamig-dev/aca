@@ -1,0 +1,48 @@
+name: Sync ACA Figma assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/sync-figma-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download current Figma assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/images
+
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/e82a9f90-be17-42c3-85a5-40cfd0f22a28.png" -o assets/images/hero.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/2ef9e3d8-87b6-4851-b782-6495942985df.png" -o assets/images/red-wave.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/29df9d51-3ed2-4daa-9583-b815aa941f85.png" -o assets/images/interlagos-aerial.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/cdeefbc6-ab3f-454e-bb50-ffb68d28185a.png" -o assets/images/flight.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/473087cf-e42a-4b6e-ac6a-5cdbf706a6b8.png" -o assets/images/hotel.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/73f9e258-f3c3-408b-b406-56321708b8f5.png" -o assets/images/transfer.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/237d87be-2da7-422d-8b80-15c656eb5ed6.png" -o assets/images/tickets.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/906c16cf-3504-4779-b2f8-5b5d5f3e24c5.png" -o assets/images/fans.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/bc60920d-c429-4849-a511-243be8d3c60a.png" -o assets/images/aca-assistance.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/f2d38338-40eb-42db-91d8-acce1fccf612.png" -o assets/images/referral-track.png
+
+      - name: Commit assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images
+          if git diff --cached --quiet; then
+            echo "No asset changes"
+            exit 0
+          fi
+          git commit -m "assets: add Figma campaign imagery"
+          git push
