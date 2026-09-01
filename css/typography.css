@@ -1,0 +1,96 @@
+/* ACA Interlagos — tipografías según Figma / QA visual
+   Titulares: Eurostile LT Std
+   Resto de la interfaz y contenidos: Futura Std
+
+   No se incluyen archivos de fuente en el repo. Los @font-face usan fuentes
+   instaladas localmente cuando están disponibles y caen a fallbacks del sistema.
+*/
+
+@font-face {
+  font-family: "ACA Eurostile";
+  src: local("Eurostile LT Std"), local("EurostileLTStd"), local("Eurostile");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Eurostile";
+  src: local("Eurostile LT Std Bold Oblique"), local("EurostileLTStd-BoldOblique"), local("Eurostile Bold Oblique");
+  font-style: italic;
+  font-weight: 700 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std"), local("FuturaStd"), local("Futura");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --aca-eurostile: "ACA Eurostile", "Eurostile LT Std", Eurostile, "Arial Black", "Arial Narrow", Arial, sans-serif;
+  --aca-futura: "ACA Futura", "Futura Std", Futura, "Avenir Next", Arial, sans-serif;
+}
+
+/* Todo el contenido parte de Futura. */
+body,
+p,
+span,
+a,
+button,
+label,
+input,
+textarea,
+select,
+option,
+li,
+small,
+b,
+strong,
+em {
+  font-family: var(--aca-futura) !important;
+}
+
+/* Titulares principales de campaña. */
+h1,
+h2,
+.hero h1,
+.gate__head h2,
+.section-head h2,
+.path-copy h2,
+.benefits h2,
+.ref-intro h2,
+.referrals h2,
+.contact h2,
+.prize-hero__copy strong,
+.timeline__finish {
+  font-family: var(--aca-eurostile) !important;
+}
+
+/* Pesos del contenido como en el Figma. */
+.timeline__step h3,
+.prize-card h3,
+.steps b,
+.benefits-grid h3 {
+  font-family: var(--aca-futura) !important;
+  font-weight: 700;
+}
+
+.timeline__step p,
+.prize-card p,
+.section-head p,
+.path-copy > p,
+.ref-intro p,
+.member-why p {
+  font-family: var(--aca-futura) !important;
+}
+
+.gate-btn,
+.action,
+.sticky-choice,
+.sticky-choice button {
+  font-family: var(--aca-futura) !important;
+}
