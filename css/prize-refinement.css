@@ -1,10 +1,10 @@
 /* Prize cards — refinement against the approved Figma composition */
 
 .prize-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   color: #575757;
 }
 
@@ -39,28 +39,28 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
-  box-shadow: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
   font-size: 0;
   line-height: 0;
 }
 
 .prize-card:nth-child(1) .prize-icon {
-  background-image: url('../assets/icons/prize-flight.png');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOFJREFUeAHtk00RwjAQhV863KmEoABQADjBQXEAKAALKGBQ0DoABwUF1EHZbTYQCjk0zYEDb+abaf7ebrJbwK8dURNnIkVk3YmVmAcFSIiMyIl1a+0ihgsZ5wgIUEuAshVgKXMQ0843GBAFoSRDzk4TNzHh77nssevMyePHyRzsgE03xEwOa3w+z5a4Ojfg/cPv3k0iEK/mzASmeLE6Yg9zu6dKJ2pfcZJcxzSRCX7DDHFU2SBKPjTMVQo4Bekh9hopZ0LDFGuMOO8/xV8/oyNMr3bl7edRHvMUYR1T4dXneADvPjc84IF+1gAAAABJRU5ErkJggg==');
   background-size: 23px 17px;
 }
 
 .prize-card:nth-child(2) .prize-icon {
-  background-image: url('../assets/icons/prize-hotel.png');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAJFJREFUeAHtlN0NQDAUhU/EAGzQEYxQkzCKEWwgJmADNmEDMQGH6pvfxn2Q+JIvPNTR9J4UAAaqIIBHAwjhQZjpRTua2GB/e8a0P/h5RUta4xpNMxrS3O5cnXzQ0BT30TAlETnzFqYkSnSgf/gutorFyZoIZkAJHMOXDo8Ha0o8R9uXq567sGZ+d6ALElfumjkDjIokZiRB8OgAAAAASUVORK5CYII=');
   background-size: 23px 17px;
 }
 
 .prize-card:nth-child(3) .prize-icon {
-  background-image: url('../assets/icons/prize-transfer.png');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOBJREFUeAGtlI0NgjAQhZ+GAdjAOoGM4Ahu4Ai6ATiBbqBOoE6gbOAG6AToBPouLT9BaSnhJV/S0FfujuMKVFIkIx8PYjgU1NZ7ciMbdFNITmbtPLOCzl7BT8qci12mnCzRT8oWZESuxnREfynoBA/kWXu+kwDSrDN5YVhFJC0CTMkDwyohk+DPxpzMoCtKOwS2+scN8wK6J1Le2qxDtMvpLz6RGN/Qs5CgargcuJNLSwCbv/wrxZChmmJVe4Hs5bX9Ji5/1MxIMtiaMiNjss2Hr//nPkpgl6+/VAh7czv7v4G+UKgNgiftAAAAAElFTkSuQmCC');
   background-size: 24px 14px;
 }
 
 .prize-card:nth-child(4) .prize-icon {
-  background-image: url('../assets/icons/prize-tickets.png');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAN1JREFUeAG1lOENgjAQhZ/E/7qBHcENxAlkA3UDNhAnYARGwQ3ECawT6AZ4T46kVo2twS95aXtcXttrKQCUonZAZSPtLEUWz6SinX4LJRdNxjqweDW1XhvCjaaJDqYYhocPTRvRUVThd/O56Cxaiy590Khx6SSmmvgNo3nFp9l4aNNI042odgOJ02+0jS2BgXeYiTejRdxpk4Mo8xfDbfM+XtEVuidF2PZJrbk0Nwy0Gky9xBhTUmh+1V/+LeK3/c6UzBL8Aa6Uv1aurYtBV/wC4SxEJz4oLO4Kw7G/A8ktPs4s3UOSAAAAAElFTkSuQmCC');
   background-size: 21px 15px;
 }
 
