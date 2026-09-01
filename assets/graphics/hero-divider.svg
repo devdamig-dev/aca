@@ -1,3 +1,16 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1419" height="259.261" viewBox="0 0 1419 259.261" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path id="Vector 4" d="M559.082 116.261C364.629 56.6612 114.005 141.094 13 190.761V246.261H1406V17.2612C1204.72 75.0945 753.535 175.861 559.082 116.261Z" fill="white" stroke-width="26"/>
+<svg preserveAspectRatio="none" overflow="visible" style="display:block" width="1419" height="259.261" viewBox="0 0 1419 259.261" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="checker" width="48" height="48" patternUnits="userSpaceOnUse">
+      <rect width="48" height="48" fill="#fff"/>
+      <rect width="24" height="24" fill="#000"/>
+      <rect x="24" y="24" width="24" height="24" fill="#000"/>
+    </pattern>
+    <path id="dividerShape" d="M559.082 116.261C364.629 56.6612 114.005 141.094 13 190.761V246.261H1406V17.2612C1204.72 75.0945 753.535 175.861 559.082 116.261Z"/>
+  </defs>
+
+  <!-- Banda a cuadros siguiendo exactamente la curva del divisor -->
+  <use href="#dividerShape" fill="url(#checker)"/>
+
+  <!-- Plano blanco desplazado: deja visible sólo una franja de cuadros sobre la curva -->
+  <use href="#dividerShape" fill="#fff" transform="translate(0 27)"/>
 </svg>
