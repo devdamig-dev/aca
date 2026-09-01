@@ -1,0 +1,62 @@
+/* Gate sequence — refinement requested in QA */
+
+.timeline__finish {
+  left: 50%;
+  right: auto;
+  bottom: -58px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-align: center;
+  padding: 0 0 12px;
+  transform: translate(-50%, 10px);
+  text-shadow: 0 3px 10px rgba(29, 185, 84, .14);
+}
+
+.timeline__finish::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 92px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--green);
+  transform: translateX(-50%) scaleX(.35);
+  opacity: 0;
+  transition: .4s ease;
+}
+
+.timeline__finish.is-visible {
+  transform: translate(-50%, 0);
+}
+
+.timeline__finish.is-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Member flow: use the campaign image supplied for the update-data section. */
+.path-section--member .path-image {
+  background: url('../assets/images/fans.webp') center center / cover no-repeat;
+}
+
+.path-section--member .path-image img {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline__finish {
+    bottom: -44px;
+    font-size: 18px;
+    letter-spacing: .06em;
+    padding-bottom: 10px;
+  }
+
+  .timeline__finish::after {
+    width: 72px;
+    height: 2px;
+  }
+}
