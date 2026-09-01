@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#e70033" />
+  <title>Interlagos te espera · ACA te lleva</title>
+  <meta name="description" content="Meté primera y participá por un viaje a Brasil, todo pago." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__photo" aria-hidden="true"></div>
+      <div class="hero__red" aria-hidden="true"></div>
+      <div class="shell hero__content">
+        <h1 id="hero-title">
+          <span class="hero__line">INTERLAGOS <em>TE ESPERA.</em></span>
+          <span class="hero__line">ACA <em>TE LLEVA</em></span>
+        </h1>
+        <p>METÉ PRIMERA Y PARTICIPÁ POR UN <strong>VIAJE A BRASIL, TODO PAGO.</strong></p>
+      </div>
+      <div class="race-divider race-divider--hero" aria-hidden="true"></div>
+    </section>
+
+    <section class="gate" id="elegi-tu-camino" aria-labelledby="gate-title">
+      <div class="shell gate__inner">
+        <div class="gate__head">
+          <h2 id="gate-title">ELEGÍ TU CAMINO Y <span>SUMÁ CHANCES</span></h2>
+          <div class="gate__actions" role="group" aria-label="Elegí tu condición de socio">
+            <button type="button" class="gate-btn gate-btn--member" data-path="member">Soy Socio</button>
+            <button type="button" class="gate-btn gate-btn--join" data-path="join">Aún no soy Socio</button>
+          </div>
+        </div>
+
+        <div class="timeline" aria-label="Cronograma de la campaña">
+          <div class="timeline__rail" aria-hidden="true"></div>
+          <article class="timeline__step" data-step="0">
+            <span class="signal" aria-hidden="true"></span>
+            <div><h3>SEPTIEMBRE</h3><p>Sumá tus chances</p></div>
+          </article>
+          <article class="timeline__step" data-step="1">
+            <span class="signal" aria-hidden="true"></span>
+            <div><h3>OCTUBRE</h3><p>Se realiza el sorteo</p></div>
+          </article>
+          <article class="timeline__step" data-step="2">
+            <span class="signal" aria-hidden="true"></span>
+            <div><h3>NOVIEMBRE</h3><p>Viajás a Interlagos</p></div>
+          </article>
+          <p class="timeline__finish" aria-live="polite">VIVÍ LA EXPERIENCIA</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="experience" class="experience" hidden>
+      <div class="sticky-choice" aria-label="Cambiar recorrido">
+        <span>Tu camino:</span>
+        <button type="button" data-path="member">Soy Socio</button>
+        <button type="button" data-path="join">Aún no soy Socio</button>
+      </div>
+
+      <section class="prize" aria-labelledby="prize-title">
+        <div class="shell prize__inner">
+          <header class="section-head section-head--center">
+            <h2 id="prize-title">ASÍ ES <span>EL VIAJE</span> QUE TE PODÉS LLEVAR</h2>
+            <p>Participá y sumá chances para ganar:</p>
+          </header>
+
+          <div class="prize-grid">
+            <article class="prize-hero">
+              <img src="assets/images/interlagos-aerial.webp" alt="Vista aérea del circuito de Interlagos" />
+              <div class="prize-hero__copy">
+                <strong>VIVÍ<br><span>INTERLAGOS</span></strong>
+                <p>Un viaje exclusivo para dos personas al GP todo incluido.</p>
+              </div>
+            </article>
+
+            <div class="prize-cards">
+              <article class="prize-card">
+                <div class="prize-card__media"><img src="assets/images/flight.webp" alt="Avión en vuelo" /><span class="prize-icon">✈</span></div>
+                <div class="prize-card__copy"><h3>VUELOS</h3><p>Ida y vuelta a San Pablo, para dos personas. 100% cubiertos.</p></div>
+              </article>
+              <article class="prize-card">
+                <div class="prize-card__media"><img src="assets/images/hotel.webp" alt="Habitación de hotel" /><span class="prize-icon">▰</span></div>
+                <div class="prize-card__copy"><h3>HOTEL</h3><p>Alojamiento incluido toda la estadía.</p></div>
+              </article>
+              <article class="prize-card">
+                <div class="prize-card__media"><img src="assets/images/transfer.webp" alt="Traslado en Brasil" /><span class="prize-icon">↔</span></div>
+                <div class="prize-card__copy"><h3>TRASLADOS</h3><p>Dentro de Brasil, del aeropuerto al hotel y al circuito.</p></div>
+              </article>
+              <article class="prize-card">
+                <div class="prize-card__media"><img src="assets/images/tickets.webp" alt="Acceso al circuito" /><span class="prize-icon">▣</span></div>
+                <div class="prize-card__copy"><h3>ENTRADAS</h3><p>Entradas para vos y un acompañante, primera fila para la fecha más importante del año.</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div id="member-why" class="member-why" hidden>
+            <strong>¿Por qué es tan importante tener tus datos al día?</strong>
+            <p>Porque así el Club te llega mejor: beneficios, novedades y sorteos como este.</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="dynamic-path"></div>
+
+      <section class="ref-intro">
+        <div class="shell">
+          <h2>Agrandá tu escudería y multiplicá tus chances de ganar.</h2>
+          <p>Corré la voz: por cada amigo que se hace Socio con tu link, sumás 5 chances más. Sin tope.</p>
+        </div>
+      </section>
+
+      <section class="referrals" aria-labelledby="ref-title">
+        <div class="race-divider race-divider--top" aria-hidden="true"></div>
+        <div class="referrals__bg" aria-hidden="true"></div>
+        <div class="shell referrals__inner">
+          <h2 id="ref-title">CADA <span>AMIGO QUE SUMÁS</span> MÁS CERCA ESTÁS</h2>
+          <div class="referral-laps">
+            <article class="ref-pill"><em>1</em><b>AMIGO</b><strong>+5 CHANCES</strong></article>
+            <span class="ref-arrow" aria-hidden="true">»</span>
+            <article class="ref-pill ref-pill--middle"><em>2</em><b>AMIGOS</b><strong>+10 CHANCES</strong></article>
+            <span class="ref-arrow" aria-hidden="true">»</span>
+            <article class="ref-pill"><em>3</em><b>AMIGOS</b><strong>+15 CHANCES</strong></article>
+          </div>
+          <p class="referrals__cap">SIN TOPE DE REFERIDOS</p>
+        </div>
+        <div class="race-divider" aria-hidden="true"></div>
+      </section>
+
+      <section class="contact" id="contacto" hidden aria-labelledby="contact-title">
+        <div class="contact__bg" aria-hidden="true"></div>
+        <div class="shell contact__grid">
+          <div class="contact__copy">
+            <h2 id="contact-title">DEJANOS TUS DATOS <span>Y TE ACOMPAÑAMOS</span></h2>
+            <p>Contanos tus dudas y te ayudamos a sumarte al Club.</p>
+          </div>
+          <form class="contact-form" id="lead-form">
+            <label>Nombre Completo<input name="nombre" autocomplete="name" required placeholder="Juan Pérez" /></label>
+            <label>Mail<input type="email" name="email" autocomplete="email" required placeholder="juan@email.com" /></label>
+            <label>Celular<input type="tel" name="telefono" autocomplete="tel" required placeholder="11 1234 5678" /></label>
+            <button type="submit">Enviar tus datos</button>
+            <p class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <template id="member-template">
+    <section class="path-section path-section--member" aria-labelledby="member-title">
+      <div class="shell path-grid">
+        <div class="path-copy">
+          <h2 id="member-title">METÉ PRIMERA Y <span>ACTUALIZÁ TUS DATOS</span></h2>
+          <p>En un minuto sumás tu chance para el viaje a Brasil, todo pago. Así de simple:</p>
+          <ol class="steps">
+            <li><span>1</span><b>DESCARGÁ LA APP ACA MÓVIL</b></li>
+            <li><span>2</span><b>ENTRÁ DESDE EL BANNER DE CAMPAÑA</b></li>
+            <li><span>3</span><b>CONFIRMÁ TUS DATOS Y ARRANCÁ TU CARRERA</b></li>
+          </ol>
+          <div class="path-actions">
+            <a href="#" class="action action--yellow">Descargar para Android</a>
+            <a href="#" class="action action--red">Descargar para iOS</a>
+          </div>
+        </div>
+        <div class="path-image"><img src="assets/images/fans.webp" alt="Personas disfrutando la carrera en Interlagos" /></div>
+      </div>
+    </section>
+  </template>
+
+  <template id="join-template">
+    <section class="path-section path-section--join" aria-labelledby="join-title">
+      <div class="shell path-grid">
+        <div class="path-copy">
+          <h2 id="join-title">HACETE SOCIO Y <span>SUMÁ TU CHANCE</span></h2>
+          <p>El alta es online, dura un minuto, y te mete directo en el sorteo.</p>
+          <ol class="steps">
+            <li><span>1</span><b>COMPLETÁ EL ALTA 100% ONLINE</b></li>
+            <li><span>2</span><b>ELEGÍ TU CATEGORÍA DE SOCIO</b></li>
+            <li><span>3</span><b>CONFIRMÁ TUS DATOS Y ARRANCÁ TU CARRERA</b></li>
+          </ol>
+          <a href="#" class="action action--yellow">Hacete Socio</a>
+          <div class="plans">
+            <article><span>🏍</span><strong>Asociándote ahora</strong><small>desde</small></article>
+            <article><span>🚗</span><strong>Asociándote ahora</strong><small>desde</small></article>
+          </div>
+        </div>
+        <div class="path-image"><img src="assets/images/aca-assistance.webp" alt="Personas disfrutando la experiencia ACA" /></div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-labelledby="benefits-title">
+      <div class="shell">
+        <div class="aca-rule" aria-hidden="true"><span></span><b>ACA</b><span></span></div>
+        <header class="section-head section-head--center">
+          <h2 id="benefits-title">UN CLUB QUE CUIDA DE VOS, DE LOS TUYOS Y DE TU AUTO</h2>
+          <p>Cada beneficio, pensado para un momento distinto de tu día.</p>
+        </header>
+        <div class="benefits-grid">
+          <article><div class="benefit-icon">○</div><div><h3>PARA VOS</h3><ul><li>Auxilio Mecánico en todo el país, estés en el auto que estés</li><li>Asistencia al viajero, en el país y en los limítrofes</li></ul></div></article>
+          <article><div class="benefit-icon">◉</div><div><h3>PARA TU AUTO</h3><ul><li>5% de descuento en Combustibles, todos los días del año</li><li>Talleres, lubricentros y lavado con beneficios exclusivos</li></ul></div></article>
+          <article><div class="benefit-icon">◎</div><div><h3>PARA LOS TUYOS</h3><ul><li>Red Hotelera propia y tarifas preferenciales en alojamiento</li><li>Ahorros en gastronomía, entretenimiento y mucho más</li></ul></div></article>
+        </div>
+        <p class="benefits-stats">+320.000 Socios · +120 años de historia · +600 equipos de Auxilio Mecánico en todo el país</p>
+      </div>
+    </section>
+  </template>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
