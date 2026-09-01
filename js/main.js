@@ -12,7 +12,6 @@
 
   let selectedPath = null;
   let gateReached = false;
-  let timelineStarted = false;
   let launchInProgress = false;
   let isClamping = false;
   let touchY = null;
@@ -23,28 +22,8 @@
     finish?.classList.remove('is-visible');
   }
 
-  function runTimeline() {
-    if (timelineStarted || launchInProgress) return;
-    timelineStarted = true;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const on = reduced ? [0, 20, 40] : [250, 950, 1650];
-    const greenAt = reduced ? 70 : 2600;
-    timelineSteps.forEach((step, i) => setTimeout(() => step.classList.add('is-red'), on[i]));
-    setTimeout(() => {
-      timelineSteps.forEach(step => {
-        step.classList.remove('is-red');
-        step.classList.add('is-green');
-      });
-      finish?.classList.add('is-visible');
-    }, greenAt);
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting && entry.intersectionRatio > .35) runTimeline();
-    }
-  }, { threshold: [.35, .55] });
-  observer.observe(gate);
+  // La timeline queda en reposo hasta que el usuario elige su camino.
+  resetTimeline();
 
   function getAudioContext() {
     if (!audioContext) {
@@ -78,7 +57,6 @@
     if (!ctx) return;
 
     const schedule = () => {
-      // Sonido propio inspirado en una largada de automovilismo; no usa audio oficial.
       scheduleTone(ctx, 430, 0.05, 0.12, 0.045);
       scheduleTone(ctx, 430, 0.72, 0.12, 0.05);
       scheduleTone(ctx, 430, 1.39, 0.12, 0.055);
@@ -161,7 +139,6 @@
   function startLaunch(path) {
     if (launchInProgress || selectedPath) return;
     launchInProgress = true;
-    timelineStarted = true;
     resetTimeline();
     playStartingLightsSound();
     gatePathButtons.forEach(button => { button.disabled = true; });
@@ -200,7 +177,6 @@
     });
   });
 
-  // query param is only useful for QA / screenshots. Normal visitors still choose at the gate.
   const qaPath = new URLSearchParams(location.search).get('path');
   if (qaPath === 'member' || qaPath === 'join') {
     renderPath(qaPath, false);
