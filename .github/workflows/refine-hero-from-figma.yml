@@ -1,0 +1,50 @@
+name: Refine ACA hero from Figma
+
+on:
+  push:
+    branches:
+      - feature/figma-refinement
+    paths:
+      - .github/workflows/refine-hero-from-figma.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refine-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/figma-refinement
+
+      - name: Download exact Figma hero assets
+        run: |
+          mkdir -p assets/images assets/graphics
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/e82a9f90-be17-42c3-85a5-40cfd0f22a28.png" -o assets/images/hero-photo.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/4f32ea1d-c01c-44d8-9873-ab156ea5f997.png" -o assets/images/hero-red-overlay.png
+          curl -L --fail --retry 3 "https://www.figma.com/api/mcp/asset/0f306f82-c75e-4ea4-8935-e92c5831b46b.svg" -o assets/graphics/hero-divider.svg
+
+      - name: Patch hero markup and load refinement stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          base = '  <link rel="stylesheet" href="css/typography.css" />\n'
+          extra = '  <link rel="stylesheet" href="css/hero-refinement.css" />\n'
+          if 'css/hero-refinement.css' not in s:
+              s = s.replace(base, base + extra, 1)
+          old = '''        <h1 id="hero-title">\n          <span class="hero__line">INTERLAGOS <em>TE ESPERA.</em></span>\n          <span class="hero__line">ACA <em>TE LLEVA</em></span>\n        </h1>'''
+          new = '''        <h1 id="hero-title">\n          <span class="hero__line">INTERLAGOS</span>\n          <span class="hero__line"><em>TE ESPERA.</em></span>\n          <span class="hero__line">ACA <em>TE LLEVA</em></span>\n        </h1>'''
+          s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+
+      - name: Commit hero refinement
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html css/hero-refinement.css assets/images/hero-photo.png assets/images/hero-red-overlay.png assets/graphics/hero-divider.svg
+          git commit -m "style: match hero composition to Figma" || exit 0
+          git push origin HEAD:feature/figma-refinement
