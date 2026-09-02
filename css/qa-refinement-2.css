@@ -1,0 +1,292 @@
+/* QA refinement — sticky spacing, join assets and benefits section */
+
+/* Give the sticky path selector more breathing room over the first section. */
+.prize {
+  padding-top: 104px;
+}
+
+.sticky-choice {
+  margin-bottom: -42px;
+}
+
+/* Bring step copy closer to the numbered blocks. */
+.steps li {
+  gap: 16px;
+}
+
+.steps b {
+  max-width: 520px;
+}
+
+/* Join path: use the supplied Interlagos fans image instead of the ACA van. */
+.path-section--join .path-image {
+  background: url('../assets/images/join-fans.webp') center center / cover no-repeat;
+}
+
+.path-section--join .path-image img {
+  opacity: 0;
+}
+
+/* Association cards: use the supplied motorcycle and car PNGs. */
+.plans {
+  gap: 14px;
+}
+
+.plans article {
+  min-height: 84px;
+  padding: 18px 20px;
+  grid-template-columns: 40px auto 1fr;
+  gap: 14px;
+  border-color: #e70033;
+  border-radius: 14px;
+}
+
+.plans article > span {
+  width: 38px;
+  height: 30px;
+  display: block;
+  font-size: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.plans article:nth-child(1) > span {
+  background-image: url('../assets/icons/plan-moto.png');
+}
+
+.plans article:nth-child(2) > span {
+  background-image: url('../assets/icons/plan-auto.png');
+}
+
+.plans strong {
+  font-family: var(--aca-futura, var(--body));
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.plans small {
+  font-family: var(--aca-futura, var(--body));
+  font-size: 18px;
+  font-weight: 300;
+  color: #555;
+}
+
+/* Benefits header — actual ACA logo supplied by the client. */
+.aca-rule {
+  width: min(790px, 100%);
+  margin: 0 auto 44px;
+  gap: 28px;
+}
+
+.aca-rule span {
+  flex: 1;
+  width: auto;
+  height: 1px;
+  background: #e70033;
+}
+
+.aca-rule b {
+  width: 138px;
+  height: 53px;
+  flex: 0 0 138px;
+  font-size: 0;
+  color: transparent;
+  background: url('../assets/graphics/aca-logo.svg') center / contain no-repeat;
+}
+
+.benefits .section-head {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.benefits .section-head h2 {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  font-size: 48px;
+  line-height: 1.06;
+}
+
+.benefits .section-head p {
+  margin: 0;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Benefits cards — horizontal Figma composition. */
+.benefits-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.benefits-grid article {
+  position: relative;
+  min-height: 168px;
+  padding: 30px 20px 20px 24px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 30px;
+  align-items: start;
+  border: 1px solid rgba(0, 0, 0, .055);
+  border-radius: 58px 16px 16px 58px;
+  background: #fff;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, .16);
+  overflow: hidden;
+}
+
+.benefits-grid article::before {
+  content: '';
+  position: absolute;
+  left: 98px;
+  top: 38px;
+  bottom: 38px;
+  width: 2px;
+  height: auto;
+  background: #e70033;
+}
+
+.benefit-icon {
+  grid-column: 1;
+  width: 60px;
+  height: 60px;
+  margin: 15px 0 0 0;
+  border-radius: 50%;
+  background-color: #fec901;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .18);
+  font-size: 0;
+}
+
+.benefits-grid article:nth-child(1) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Ccircle cx='14' cy='9' r='5' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M6 22c0-4.5 3.6-8 8-8s8 3.5 8 8' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(2) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='22' viewBox='0 0 30 22' fill='none'%3E%3Cpath d='M5 14l2-5h16l2 5' stroke='%23111' stroke-width='2' stroke-linejoin='round'/%3E%3Crect x='3' y='10' width='24' height='7' rx='2' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='8' cy='18' r='2' fill='%23111'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%23111'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(3) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='26' viewBox='0 0 30 26' fill='none'%3E%3Ccircle cx='15' cy='8' r='4' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='7' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='23' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M9 22c0-3.5 2.7-6 6-6s6 2.5 6 6' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M2 22c0-3 2.2-5 5-5M28 22c0-3-2.2-5-5-5' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article > div:last-child {
+  grid-column: 2;
+}
+
+.benefits-grid h3 {
+  margin: 0 0 10px;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 24px;
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+.benefits-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 14px;
+  line-height: 1.24;
+  font-weight: 300;
+  color: #303030;
+}
+
+.benefits-grid li + li {
+  margin-top: 5px;
+}
+
+.benefits-stats {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .prize {
+    padding-top: 76px;
+  }
+
+  .sticky-choice {
+    margin-bottom: -34px;
+  }
+
+  .steps li {
+    gap: 10px;
+  }
+
+  .plans article {
+    grid-template-columns: 36px 1fr;
+    padding: 16px;
+  }
+
+  .plans small {
+    display: inline;
+  }
+
+  .aca-rule {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .aca-rule b {
+    width: 92px;
+    height: 36px;
+    flex-basis: 92px;
+  }
+
+  .benefits .section-head h2 {
+    font-size: 38px;
+    line-height: 1.04;
+  }
+
+  .benefits .section-head p {
+    font-size: 18px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .benefits-grid article {
+    min-height: 0;
+    padding: 22px 18px 18px 20px;
+    grid-template-columns: 58px 1fr;
+    column-gap: 24px;
+    border-radius: 42px 12px 12px 42px;
+  }
+
+  .benefits-grid article::before {
+    left: 82px;
+    top: 26px;
+    bottom: 26px;
+  }
+
+  .benefit-icon {
+    width: 46px;
+    height: 46px;
+    margin-top: 10px;
+    background-size: 24px auto;
+  }
+
+  .benefits-grid h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .benefits-grid ul {
+    font-size: 14px;
+  }
+
+  .benefits-stats {
+    margin-top: 28px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+}
