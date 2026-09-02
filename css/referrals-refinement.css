@@ -296,7 +296,7 @@ aspect-ratio: auto;
 .ref-arrow { display: none; }
 .referrals__cap {
 top: auto;
-bottom: 38px;
+bottom: -50px;
 font-size: 13px;
 }
 }
