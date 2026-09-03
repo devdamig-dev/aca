@@ -163,6 +163,12 @@
       btn.classList.toggle('is-active', btn.dataset.path === path);
     });
 
+    /* Keep a client-friendly, shareable URL in sync with the selected route. */
+    const url = new URL(window.location.href);
+    url.searchParams.delete('path');
+    url.searchParams.set('tipo', path === 'member' ? 'socio' : 'no-socio');
+    history.replaceState(null, '', url);
+
     if (shouldScroll) {
       requestAnimationFrame(() => experience.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     }
@@ -209,9 +215,20 @@
     });
   });
 
-  const qaPath = new URLSearchParams(location.search).get('path');
-  if (qaPath === 'member' || qaPath === 'join') {
-    renderPath(qaPath, false);
+  const params = new URLSearchParams(location.search);
+  const legacyPath = params.get('path');
+  const tipo = params.get('tipo');
+  const directPath =
+    legacyPath === 'member' || legacyPath === 'join'
+      ? legacyPath
+      : tipo === 'socio'
+        ? 'member'
+        : tipo === 'no-socio' || tipo === 'nosocio'
+          ? 'join'
+          : null;
+
+  if (directPath) {
+    renderPath(directPath, false);
   }
 
   leadForm?.addEventListener('submit', e => {
