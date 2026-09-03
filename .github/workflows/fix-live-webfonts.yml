@@ -1,0 +1,67 @@
+name: fix-live-webfonts
+
+on:
+  push:
+    branches:
+      - fix/live-webfonts
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point CSS to uploaded webfonts
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('css/styles.css')
+          css = p.read_text(encoding='utf-8')
+
+          replacements = {
+            '../assets/fonts/eurostile-bold.woff2': '../fonts/eurostileltstd-bold.woff2',
+            '../assets/fonts/eurostile-bold.woff': '../fonts/eurostileltstd-bold.woff',
+            '../assets/fonts/eurostile-bold-oblique.woff2': '../fonts/eurostileltstd boldoblique.woff2',
+            '../assets/fonts/futura-light.woff2': '../fonts/FuturaStdLight.woff2',
+            '../assets/fonts/futura-light.woff': '../fonts/FuturaStdLight.woff',
+            '../assets/fonts/futura-book.woff2': '../fonts/FuturaStdMedium.woff2',
+            '../assets/fonts/futura-book.woff': '../fonts/FuturaStdMedium.woff',
+            '../assets/fonts/futura-medium.woff2': '../fonts/FuturaStdMedium.woff2',
+            '../assets/fonts/futura-medium.woff': '../fonts/FuturaStdMedium.woff',
+            '../assets/fonts/futura-bold.woff2': '../fonts/FuturaStdBold.woff2',
+            '../assets/fonts/futura-bold.woff': '../fonts/FuturaStdBold.woff',
+          }
+          for old, new in replacements.items():
+            css = css.replace(old, new)
+
+          # We only received WOFF2 for Eurostile Bold Oblique.
+          css = css.replace('       url("../assets/fonts/eurostile-bold-oblique.woff") format("woff"),\n', '')
+          css = css.replace('       url("../fonts/eurostile-bold-oblique.woff") format("woff"),\n', '')
+
+          # Heading descendants had a global Futura !important rule. Force them to inherit Eurostile.
+          marker = '/* Pesos Futura según el Figma. */'
+          fix = '''/* Preserve Eurostile inside campaign headings/highlights. */
+h1 *,
+h2 *,
+.hero__content > p *,
+.prize-hero__copy strong * {
+  font-family: inherit !important;
+}
+
+'''
+          if fix not in css:
+            css = css.replace(marker, fix + marker, 1)
+
+          p.write_text(css, encoding='utf-8')
+          PY
+      - name: Commit CSS fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add css/styles.css
+          git commit -m "fix: load uploaded Eurostile and Futura webfonts" || exit 0
+          git push
