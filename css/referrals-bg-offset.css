@@ -1,0 +1,6 @@
+/* Referrals desktop background alignment — visual QA */
+@media (min-width: 721px) {
+  .referrals__bg {
+    background-position: center 24px;
+  }
+}
