@@ -1,0 +1,241 @@
+/* Precise QA fixes: referrals validated values + prize/path responsive */
+
+/* Keep the value validated manually in DevTools. */
+.ref-pill strong {
+  margin-bottom: -50px;
+}
+
+/* Member path: use the supplied Interlagos fans image that already exists in the repo. */
+.path-section--member .path-image {
+  background: url('../assets/images/join-fans.webp') center center / cover no-repeat;
+}
+
+.path-section--member .path-image img {
+  opacity: 0;
+}
+
+/* Desktop: the four prize cards must occupy exactly the same total height as the large image. */
+@media (min-width: 1101px) {
+  .prize-grid {
+    grid-template-columns: 532px minmax(0, 1fr);
+    gap: 32px;
+    height: 588px;
+    align-items: stretch;
+  }
+
+  .prize-hero {
+    height: 100%;
+  }
+
+  .prize-cards {
+    height: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: unset;
+    align-content: stretch;
+    gap: 24px 16px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prize-card__media {
+    height: 150px;
+    flex: 0 0 150px;
+  }
+
+  .prize-card__copy {
+    flex: 1;
+  }
+
+  .path-grid {
+    grid-template-columns: minmax(0, 636px) minmax(0, 500px);
+  }
+}
+
+/* Tablet: remove fixed desktop widths and preserve proportions. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .shell {
+    width: min(var(--max), calc(100% - 64px));
+  }
+
+  .prize-grid {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    gap: 24px;
+    height: 520px;
+    align-items: stretch;
+  }
+
+  .prize-hero {
+    height: 100%;
+  }
+
+  .prize-cards {
+    height: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: unset;
+    align-content: stretch;
+    gap: 20px 14px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prize-card__media {
+    height: 124px;
+    flex: 0 0 124px;
+  }
+
+  .prize-card__copy {
+    flex: 1;
+    padding: 12px 13px 14px;
+  }
+
+  .prize-card h3 {
+    font-size: 17px;
+  }
+
+  .prize-card p {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .path-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+    gap: 24px;
+  }
+
+  .path-copy h2 {
+    font-size: clamp(38px, 4.4vw, 48px);
+  }
+
+  .path-copy > p {
+    font-size: 21px;
+  }
+
+  .steps b {
+    font-size: 18px;
+  }
+
+  .path-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 542;
+  }
+
+  .path-section--join .path-image {
+    height: auto;
+    aspect-ratio: 500 / 726;
+  }
+}
+
+/* Small tablet: stack both sections before they become cramped. */
+@media (min-width: 721px) and (max-width: 900px) {
+  .prize-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .prize-hero {
+    height: auto;
+    aspect-ratio: 532 / 588;
+  }
+
+  .prize-cards {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+  }
+
+  .prize-card {
+    height: auto;
+  }
+
+  .path-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .path-image,
+  .path-section--join .path-image {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+}
+
+/* Mobile: fully fluid and stacked. */
+@media (max-width: 720px) {
+  .prize-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .prize-hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 532 / 588;
+  }
+
+  .prize-cards {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: auto;
+  }
+
+  .prize-card__media {
+    height: 150px;
+  }
+
+  .path-section {
+    padding: 88px 0;
+  }
+
+  .path-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .path-copy h2 {
+    font-size: clamp(36px, 11vw, 48px);
+  }
+
+  .path-copy > p {
+    font-size: 20px;
+  }
+
+  .path-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 542;
+  }
+
+  .path-section--join .path-image {
+    height: auto;
+    aspect-ratio: 500 / 726;
+  }
+
+  .path-actions {
+    width: 100%;
+  }
+
+  .path-actions .action {
+    width: 100%;
+  }
+}
