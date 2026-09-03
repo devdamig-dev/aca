@@ -141,6 +141,7 @@
     width: 279px;
     height: 252px;
     margin: 75px auto 0;
+    margin-right: 30px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 60px);
