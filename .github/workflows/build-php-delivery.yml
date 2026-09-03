@@ -1,0 +1,73 @@
+name: build-php-delivery
+
+on:
+  push:
+    branches:
+      - chore/php-delivery-package
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PHP delivery package
+        run: |
+          set -e
+          PACKAGE="ACA_Interlagos_PHP"
+          rm -rf "$PACKAGE" "$PACKAGE.zip"
+          mkdir -p "$PACKAGE"
+
+          cp -a assets "$PACKAGE/"
+          cp -a css "$PACKAGE/"
+          cp -a fonts "$PACKAGE/"
+          cp -a js "$PACKAGE/"
+
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path('index.html').read_text(encoding='utf-8')
+          php = "<?php\nheader('Content-Type: text/html; charset=UTF-8');\n?>\n" + src
+          Path('ACA_Interlagos_PHP/index.php').write_text(php, encoding='utf-8', newline='\n')
+          PY
+
+          cat > "$PACKAGE/.htaccess" <<'EOF'
+          AddDefaultCharset UTF-8
+          DirectoryIndex index.php
+          EOF
+
+          cat > "$PACKAGE/LEEME.txt" <<'EOF'
+          ACA - Campaña Viaja a Interlagos
+
+          Paquete preparado para servidor PHP.
+          Archivo de entrada: index.php
+          Codificación: UTF-8
+
+          Incluye:
+          - Google Tag Manager GTM-N66LS8
+          - CSS unificado
+          - JavaScript
+          - Imágenes y recursos gráficos
+          - Webfonts Eurostile / Futura
+          - URLs de descarga ACA Móvil Android / iOS
+          - SEO/canonical para la URL final de ACA
+
+          Recorridos directos previstos en producción:
+          ?tipo=socio
+          ?tipo=no-socio
+          EOF
+
+          zip -r "$PACKAGE.zip" "$PACKAGE" >/dev/null
+
+          echo "Contenido generado:"
+          unzip -l "$PACKAGE.zip" | tail -n +1
+
+      - name: Upload PHP ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: ACA_Interlagos_PHP
+          path: ACA_Interlagos_PHP.zip
+          if-no-files-found: error
+          retention-days: 7
