@@ -1,0 +1,299 @@
+/* Mobile-only fidelity pass against Figma 393px frames. Desktop/tablet intentionally untouched. */
+@media (max-width: 480px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+
+  /* HERO — Figma mobile frame: 393 × 832 */
+  .hero {
+    height: clamp(700px, 211.7vw, 832px);
+    min-height: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: #111;
+  }
+
+  .hero__photo {
+    inset: 0;
+    background: url('../assets/images/hero-photo.png') 64% center / cover no-repeat;
+    z-index: -4;
+  }
+
+  .hero__red {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(128deg, rgba(205,10,8,.98), rgba(225,22,9,.9)),
+      url('../assets/images/red-wave.png') 42% 50% / cover no-repeat;
+    clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
+    z-index: -2;
+  }
+
+  .hero__red::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(125,0,0,.12), transparent 72%);
+  }
+
+  .hero .shell.hero__content {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 104px 18px 0;
+  }
+
+  .hero h1 {
+    width: 290px;
+    max-width: 74vw;
+    margin: 0 0 22px;
+    font-size: clamp(34px, 9.7vw, 38px);
+    line-height: .98;
+    letter-spacing: -.5px;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 0 3px 3px rgba(0,0,0,.28);
+  }
+
+  .hero__line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero__content > p {
+    width: 205px;
+    max-width: 54vw;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.03;
+    font-weight: 700;
+    text-shadow: 0 2px 2px rgba(0,0,0,.25);
+  }
+
+  .race-divider--hero {
+    left: -8%;
+    right: auto;
+    bottom: -18px;
+    width: 116%;
+    height: 84px;
+    transform: none;
+    background: url('../assets/graphics/hero-divider.svg') center / 100% 100% no-repeat;
+  }
+
+  /* GATE — Figma mobile frame: 393 × 726 */
+  .gate {
+    height: 726px;
+    min-height: 726px;
+    overflow: hidden;
+  }
+
+  .gate__inner {
+    padding-top: 37px;
+    text-align: center;
+  }
+
+  .gate__head {
+    width: min(358px, 100%);
+    margin-inline: auto;
+  }
+
+  .gate__head h2 {
+    width: 100%;
+    max-width: 358px;
+    margin: 0 auto 25px;
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+
+  .gate__actions {
+    width: 358px;
+    max-width: 100%;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .gate-btn {
+    min-height: 56px;
+    height: 56px;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .gate-btn--member {
+    width: 142px;
+    flex: 0 0 142px;
+  }
+
+  .gate-btn--join {
+    width: 200px;
+    flex: 0 1 200px;
+  }
+
+  .timeline {
+    width: 279px;
+    height: 252px;
+    margin: 75px auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 60px);
+    gap: 36px;
+  }
+
+  .timeline__rail {
+    left: 14px;
+    right: auto;
+    top: 14px;
+    bottom: auto;
+    width: 2px;
+    height: 192px;
+  }
+
+  .timeline__step {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    align-items: start;
+    text-align: left;
+  }
+
+  .timeline__step > div {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timeline__step h3 {
+    margin: 0 0 14px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .timeline__step p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  /* REFERRALS — Figma mobile composition is vertical, not a compressed desktop row. */
+  .referrals {
+    height: 1558px;
+    min-height: 1558px;
+    padding: 72px 0 40px;
+    overflow: hidden;
+  }
+
+  .referrals__bg {
+    inset: 0;
+    opacity: 1;
+    background-image: url('../assets/images/referral-track.png');
+    background-repeat: no-repeat;
+    background-size: auto 135%;
+    background-position: left center;
+  }
+
+  .referrals__bg::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.02) 35%, rgba(0,0,0,.08));
+  }
+
+  .referrals__inner {
+    height: 100%;
+    text-align: center;
+  }
+
+  .referrals h2 {
+    max-width: 330px;
+    margin: 0 auto 72px;
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .referral-laps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 120px;
+  }
+
+  .ref-pill {
+    position: relative;
+    width: clamp(160px, 46vw, 180px);
+    height: clamp(160px, 46vw, 180px);
+    flex: 0 0 auto;
+    padding: 12px;
+  }
+
+  .ref-pill::before {
+    inset: 7px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,.5);
+  }
+
+  .ref-pill em {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .ref-pill b {
+    margin: 22px 0 0;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .ref-pill strong {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 8px 11px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .ref-pill--middle {
+    transform: none;
+  }
+
+  .ref-arrow {
+    width: 58px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 58px;
+    line-height: 1;
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+
+  .referrals__cap {
+    position: static;
+    display: inline-block;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 86px auto 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.05;
+    white-space: normal;
+    max-width: 120px;
+  }
+
+  .referrals .race-divider--top {
+    height: 28px;
+  }
+
+  .referrals > .race-divider:not(.race-divider--top) {
+    display: none;
+  }
+}
