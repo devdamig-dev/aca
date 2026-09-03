@@ -9,6 +9,8 @@
   const timelineSteps = [...document.querySelectorAll('.timeline__step')];
   const finish = document.querySelector('.timeline__finish');
   const leadForm = document.getElementById('lead-form');
+  const referrals = document.querySelector('.referrals');
+  const refIntro = document.querySelector('.ref-intro');
 
   let selectedPath = null;
   let gateReached = false;
@@ -16,6 +18,26 @@
   let isClamping = false;
   let touchY = null;
   let audioContext = null;
+
+  /* Final content order: visual referrals first, explanatory intro below it. */
+  if (referrals && refIntro && referrals.nextElementSibling !== refIntro) {
+    referrals.insertAdjacentElement('afterend', refIntro);
+  }
+
+  /* Shared footer for both paths. */
+  if (experience && !experience.querySelector('.site-footer')) {
+    const footer = document.createElement('footer');
+    footer.className = 'site-footer';
+    footer.innerHTML = `
+      <div class="shell site-footer__inner">
+        <div class="site-footer__logo" role="img" aria-label="Automóvil Club Argentino"></div>
+        <div class="site-footer__links">
+          <span>Bases y Condiciones</span>
+          <a href="https://www.aca.org.ar/condiciones/politica-de-privacidad/" target="_blank" rel="noopener noreferrer">Políticas de privacidad</a>
+        </div>
+      </div>`;
+    experience.append(footer);
+  }
 
   function resetTimeline() {
     timelineSteps.forEach(step => step.classList.remove('is-red', 'is-green'));
@@ -126,6 +148,16 @@
     dynamicPath.append(template.content.cloneNode(true));
     memberWhy.hidden = path !== 'member';
     contact.hidden = path !== 'join';
+
+    if (path === 'join') {
+      dynamicPath.querySelectorAll('.plans article').forEach(article => {
+        if (article.querySelector('.plan-price')) return;
+        const price = document.createElement('b');
+        price.className = 'plan-price';
+        price.textContent = '$20.000';
+        article.append(price);
+      });
+    }
 
     document.querySelectorAll('.sticky-choice [data-path]').forEach(btn => {
       btn.classList.toggle('is-active', btn.dataset.path === path);
