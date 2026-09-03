@@ -1,0 +1,68 @@
+name: app-links-font-ready
+
+on:
+  push:
+    branches:
+      - chore/app-links-font-web-ready-2
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update app links and prepare webfont sources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          html = index.read_text(encoding='utf-8')
+          html = html.replace(
+              '<a href="#" class="action action--yellow">Descargar para Android</a>',
+              '<a href="https://play.google.com/store/apps/details?id=ar.org.aca.android.edvial" class="action action--yellow" target="_blank" rel="noopener noreferrer">Descargar para Android</a>'
+          )
+          html = html.replace(
+              '<a href="#" class="action action--red">Descargar para iOS</a>',
+              '<a href="https://apps.apple.com/us/app/aca-movil/id990742016" class="action action--red" target="_blank" rel="noopener noreferrer">Descargar para iOS</a>'
+          )
+          index.write_text(html, encoding='utf-8')
+
+          styles = Path('css/styles.css')
+          css = styles.read_text(encoding='utf-8')
+          css = css.replace(
+              'src: local("Eurostile LT Std Bold"),\n       local("EurostileLTStd-Bold"),\n       local("Eurostile LT Std");',
+              'src: url("../assets/fonts/eurostile-bold.woff2") format("woff2"),\n       url("../assets/fonts/eurostile-bold.woff") format("woff"),\n       local("Eurostile LT Std Bold"),\n       local("EurostileLTStd-Bold"),\n       local("Eurostile LT Std");'
+          )
+          css = css.replace(
+              'src: local("Eurostile LT Std Bold Oblique"),\n       local("EurostileLTStd-BoldOblique"),\n       local("Eurostile LT Std Oblique"),\n       local("EurostileLTStd-Oblique");',
+              'src: url("../assets/fonts/eurostile-bold-oblique.woff2") format("woff2"),\n       url("../assets/fonts/eurostile-bold-oblique.woff") format("woff"),\n       local("Eurostile LT Std Bold Oblique"),\n       local("EurostileLTStd-BoldOblique"),\n       local("Eurostile LT Std Oblique"),\n       local("EurostileLTStd-Oblique");'
+          )
+          css = css.replace(
+              'src: local("Futura Std Light"),\n       local("FuturaStd-Light"),\n       local("Futura LT Light"),\n       local("Futura Light");',
+              'src: url("../assets/fonts/futura-light.woff2") format("woff2"),\n       url("../assets/fonts/futura-light.woff") format("woff"),\n       local("Futura Std Light"),\n       local("FuturaStd-Light"),\n       local("Futura LT Light"),\n       local("Futura Light");'
+          )
+          css = css.replace(
+              'src: local("Futura Std Book"),\n       local("FuturaStd-Book"),\n       local("Futura Std"),\n       local("FuturaStd"),\n       local("Futura");',
+              'src: url("../assets/fonts/futura-book.woff2") format("woff2"),\n       url("../assets/fonts/futura-book.woff") format("woff"),\n       local("Futura Std Book"),\n       local("FuturaStd-Book"),\n       local("Futura Std"),\n       local("FuturaStd"),\n       local("Futura");'
+          )
+          css = css.replace(
+              'src: local("Futura Std Medium"),\n       local("FuturaStd-Medium"),\n       local("Futura Medium");',
+              'src: url("../assets/fonts/futura-medium.woff2") format("woff2"),\n       url("../assets/fonts/futura-medium.woff") format("woff"),\n       local("Futura Std Medium"),\n       local("FuturaStd-Medium"),\n       local("Futura Medium");'
+          )
+          css = css.replace(
+              'src: local("Futura Std Bold"),\n       local("FuturaStd-Bold"),\n       local("Futura Bold");',
+              'src: url("../assets/fonts/futura-bold.woff2") format("woff2"),\n       url("../assets/fonts/futura-bold.woff") format("woff"),\n       local("Futura Std Bold"),\n       local("FuturaStd-Bold"),\n       local("Futura Bold");'
+          )
+          styles.write_text(css, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html css/styles.css
+          git commit -m "chore: add app links and prepare licensed webfont paths" || exit 0
+          git push
