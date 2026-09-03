@@ -1,3 +1,4 @@
+/* ===== styles.css ===== */
 :root{
   --red:#e70033;
   --red-dark:#b9092f;
@@ -72,3 +73,1576 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
   .contact{height:612px}.contact__grid{grid-template-columns:1fr;gap:30px;align-content:center}.contact h2{font-size:42px;margin-bottom:20px}.contact__copy>p{font-size:18px}.contact-form{padding:24px 20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+
+/* ===== typography.css ===== */
+/* ACA Interlagos — tipografías según Figma
+   Titulares: Eurostile LT Std
+   Resto: Futura Std
+
+   Estas reglas usan variantes locales exactas cuando la fuente está instalada.
+   Para garantizar estas familias en cualquier dispositivo necesitaremos los
+   webfonts licenciados de ACA (woff/woff2) o el servicio webfont que utilicen.
+*/
+
+/* EUROSTILE LT STD */
+@font-face {
+  font-family: "ACA Eurostile";
+  src: local("Eurostile LT Std Bold"),
+       local("EurostileLTStd-Bold"),
+       local("Eurostile LT Std");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Eurostile";
+  src: local("Eurostile LT Std Bold Oblique"),
+       local("EurostileLTStd-BoldOblique"),
+       local("Eurostile LT Std Oblique"),
+       local("EurostileLTStd-Oblique");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* FUTURA STD */
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Light"),
+       local("FuturaStd-Light"),
+       local("Futura LT Light"),
+       local("Futura Light");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Book"),
+       local("FuturaStd-Book"),
+       local("Futura Std"),
+       local("FuturaStd"),
+       local("Futura");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Medium"),
+       local("FuturaStd-Medium"),
+       local("Futura Medium");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura";
+  src: local("Futura Std Bold"),
+       local("FuturaStd-Bold"),
+       local("Futura Bold");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --aca-eurostile: "ACA Eurostile", "Eurostile LT Std", Eurostile, "Arial Black", "Arial Narrow", Arial, sans-serif;
+  --aca-futura: "ACA Futura", "Futura Std", Futura, "Avenir Next", Arial, sans-serif;
+}
+
+html,
+body {
+  font-family: var(--aca-futura);
+}
+
+/* Todo lo no titular usa Futura. */
+p,
+span,
+a,
+button,
+label,
+input,
+textarea,
+select,
+option,
+li,
+small,
+b,
+strong,
+em,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--aca-futura) !important;
+}
+
+/* Titulares principales y destacados de campaña. */
+h1,
+h2,
+.hero h1,
+.hero__content > p,
+.gate__head h2,
+.section-head h2,
+.path-copy h2,
+.benefits h2,
+.ref-intro h2,
+.referrals h2,
+.contact h2,
+.prize-hero__copy strong,
+.timeline__finish {
+  font-family: var(--aca-eurostile) !important;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-style: italic;
+}
+
+/* Pesos Futura según el Figma. */
+.timeline__step h3,
+.prize-card h3,
+.steps b,
+.benefits-grid h3 {
+  font-family: var(--aca-futura) !important;
+  font-weight: 700;
+}
+
+.timeline__step p,
+.prize-card p {
+  font-family: var(--aca-futura) !important;
+  font-weight: 300;
+}
+
+.section-head p,
+.path-copy > p,
+.ref-intro p,
+.member-why p {
+  font-family: var(--aca-futura) !important;
+  font-weight: 500;
+}
+
+.gate-btn,
+.action,
+.sticky-choice,
+.sticky-choice button,
+.contact input,
+.contact button {
+  font-family: var(--aca-futura) !important;
+}
+
+
+/* ===== prize-refinement.css ===== */
+/* Prize cards — refinement against the approved Figma composition */
+
+.prize-card {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  color: #575757;
+}
+
+.prize-card__copy {
+  padding: 14px 14px 18px;
+}
+
+.prize-card h3 {
+  margin: 0 0 12px;
+  color: #151515;
+  font-family: var(--aca-futura, var(--body)) !important;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.prize-card p {
+  margin: 0;
+  color: #5f5f5f;
+  font-family: var(--aca-futura, var(--body)) !important;
+  font-size: 16px;
+  line-height: 1.32;
+  font-weight: 300;
+}
+
+.prize-icon {
+  left: 12px;
+  top: 10px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--yellow);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  font-size: 0;
+  line-height: 0;
+}
+
+.prize-card:nth-child(1) .prize-icon {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOFJREFUeAHtk00RwjAQhV863KmEoABQADjBQXEAKAALKGBQ0DoABwUF1EHZbTYQCjk0zYEDb+abaf7ebrJbwK8dURNnIkVk3YmVmAcFSIiMyIl1a+0ihgsZ5wgIUEuAshVgKXMQ0843GBAFoSRDzk4TNzHh77nssevMyePHyRzsgE03xEwOa3w+z5a4Ojfg/cPv3k0iEK/mzASmeLE6Yg9zu6dKJ2pfcZJcxzSRCX7DDHFU2SBKPjTMVQo4Bekh9hopZ0LDFGuMOO8/xV8/oyNMr3bl7edRHvMUYR1T4dXneADvPjc84IF+1gAAAABJRU5ErkJggg==');
+  background-size: 23px 17px;
+}
+
+.prize-card:nth-child(2) .prize-icon {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAJFJREFUeAHtlN0NQDAUhU/EAGzQEYxQkzCKEWwgJmADNmEDMQGH6pvfxn2Q+JIvPNTR9J4UAAaqIIBHAwjhQZjpRTua2GB/e8a0P/h5RUta4xpNMxrS3O5cnXzQ0BT30TAlETnzFqYkSnSgf/gutorFyZoIZkAJHMOXDo8Ha0o8R9uXq567sGZ+d6ALElfumjkDjIokZiRB8OgAAAAASUVORK5CYII=');
+  background-size: 23px 17px;
+}
+
+.prize-card:nth-child(3) .prize-icon {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAOBJREFUeAGtlI0NgjAQhZ+GAdjAOoGM4Ahu4Ai6ATiBbqBOoE6gbOAG6AToBPouLT9BaSnhJV/S0FfujuMKVFIkIx8PYjgU1NZ7ciMbdFNITmbtPLOCzl7BT8qci12mnCzRT8oWZESuxnREfynoBA/kWXu+kwDSrDN5YVhFJC0CTMkDwyohk+DPxpzMoCtKOwS2+scN8wK6J1Le2qxDtMvpLz6RGN/Qs5CgargcuJNLSwCbv/wrxZChmmJVe4Hs5bX9Ji5/1MxIMtiaMiNjss2Hr//nPkpgl6+/VAh7czv7v4G+UKgNgiftAAAAAElFTkSuQmCC');
+  background-size: 24px 14px;
+}
+
+.prize-card:nth-child(4) .prize-icon {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAN1JREFUeAG1lOENgjAQhZ/E/7qBHcENxAlkA3UDNhAnYARGwQ3ECawT6AZ4T46kVo2twS95aXtcXttrKQCUonZAZSPtLEUWz6SinX4LJRdNxjqweDW1XhvCjaaJDqYYhocPTRvRUVThd/O56Cxaiy590Khx6SSmmvgNo3nFp9l4aNNI042odgOJ02+0jS2BgXeYiTejRdxpk4Mo8xfDbfM+XtEVuidF2PZJrbk0Nwy0Gky9xBhTUmh+1V/+LeK3/c6UzBL8Aa6Uv1aurYtBV/wC4SxEJz4oLO4Kw7G/A8ktPs4s3UOSAAAAAElFTkSuQmCC');
+  background-size: 21px 15px;
+}
+
+@media (max-width: 768px) {
+  .prize-card__copy {
+    padding: 13px 14px 17px;
+  }
+
+  .prize-card h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+  }
+
+  .prize-card p {
+    font-size: 15px;
+    line-height: 1.32;
+  }
+
+  .prize-icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+
+/* ===== prize-sizing.css ===== */
+/* Prize cards — compact vertical rhythm after visual QA */
+
+@media (min-width: 769px) {
+  .prize-cards {
+    grid-auto-rows: max-content;
+    align-content: start;
+    gap: 24px 16px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  .prize-card__media {
+    height: 150px;
+  }
+
+  .prize-card__copy {
+    padding: 13px 14px 15px;
+  }
+
+  .prize-card h3 {
+    margin-bottom: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  .prize-card {
+    min-height: 0;
+  }
+
+  .prize-card__media {
+    height: 138px;
+  }
+}
+
+
+/* ===== qa-refinement-2.css ===== */
+/* QA refinement — sticky spacing, join assets and benefits section */
+
+/* Give the sticky path selector more breathing room over the first section. */
+.prize {
+  padding-top: 104px;
+}
+
+.sticky-choice {
+  margin-bottom: -42px;
+}
+
+/* Bring step copy closer to the numbered blocks. */
+.steps li {
+  gap: 16px;
+}
+
+.steps b {
+  max-width: 520px;
+}
+
+/* Join path: use the supplied Interlagos fans image instead of the ACA van. */
+.path-section--join .path-image {
+  background: url('../assets/images/join-fans.webp') center center / cover no-repeat;
+}
+
+.path-section--join .path-image img {
+  opacity: 0;
+}
+
+/* Association cards: use the supplied motorcycle and car PNGs. */
+.plans {
+  gap: 14px;
+}
+
+.plans article {
+  min-height: 84px;
+  padding: 18px 20px;
+  grid-template-columns: 40px auto 1fr;
+  gap: 14px;
+  border-color: #e70033;
+  border-radius: 14px;
+}
+
+.plans article > span {
+  width: 38px;
+  height: 30px;
+  display: block;
+  font-size: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.plans article:nth-child(1) > span {
+  background-image: url('../assets/icons/plan-moto.png');
+}
+
+.plans article:nth-child(2) > span {
+  background-image: url('../assets/icons/plan-auto.png');
+}
+
+.plans strong {
+  font-family: var(--aca-futura, var(--body));
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.plans small {
+  font-family: var(--aca-futura, var(--body));
+  font-size: 18px;
+  font-weight: 300;
+  color: #555;
+}
+
+/* Benefits header — actual ACA logo supplied by the client. */
+.aca-rule {
+  width: min(790px, 100%);
+  margin: 0 auto 44px;
+  gap: 28px;
+}
+
+.aca-rule span {
+  flex: 1;
+  width: auto;
+  height: 1px;
+  background: #e70033;
+}
+
+.aca-rule b {
+  width: 138px;
+  height: 53px;
+  flex: 0 0 138px;
+  font-size: 0;
+  color: transparent;
+  background: url('../assets/graphics/aca-logo.svg') center / contain no-repeat;
+}
+
+.benefits .section-head {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.benefits .section-head h2 {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  font-size: 48px;
+  line-height: 1.06;
+}
+
+.benefits .section-head p {
+  margin: 0;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Benefits cards — horizontal Figma composition. */
+.benefits-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.benefits-grid article {
+  position: relative;
+  min-height: 168px;
+  padding: 30px 20px 20px 24px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 30px;
+  align-items: start;
+  border: 1px solid rgba(0, 0, 0, .055);
+  border-radius: 58px 16px 16px 58px;
+  background: #fff;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, .16);
+  overflow: hidden;
+}
+
+.benefits-grid article::before {
+  content: '';
+  position: absolute;
+  left: 98px;
+  top: 38px;
+  bottom: 38px;
+  width: 2px;
+  height: auto;
+  background: #e70033;
+}
+
+.benefit-icon {
+  grid-column: 1;
+  width: 60px;
+  height: 60px;
+  margin: 15px 0 0 0;
+  border-radius: 50%;
+  background-color: #fec901;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .18);
+  font-size: 0;
+}
+
+.benefits-grid article:nth-child(1) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Ccircle cx='14' cy='9' r='5' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M6 22c0-4.5 3.6-8 8-8s8 3.5 8 8' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(2) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='22' viewBox='0 0 30 22' fill='none'%3E%3Cpath d='M5 14l2-5h16l2 5' stroke='%23111' stroke-width='2' stroke-linejoin='round'/%3E%3Crect x='3' y='10' width='24' height='7' rx='2' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='8' cy='18' r='2' fill='%23111'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%23111'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(3) .benefit-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='26' viewBox='0 0 30 26' fill='none'%3E%3Ccircle cx='15' cy='8' r='4' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='7' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='23' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M9 22c0-3.5 2.7-6 6-6s6 2.5 6 6' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M2 22c0-3 2.2-5 5-5M28 22c0-3-2.2-5-5-5' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article > div:last-child {
+  grid-column: 2;
+}
+
+.benefits-grid h3 {
+  margin: 0 0 10px;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 24px;
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+.benefits-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--aca-futura, var(--body));
+  font-size: 14px;
+  line-height: 1.24;
+  font-weight: 300;
+  color: #303030;
+}
+
+.benefits-grid li + li {
+  margin-top: 5px;
+}
+
+.benefits-stats {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .prize {
+    padding-top: 76px;
+  }
+
+  .sticky-choice {
+    margin-bottom: -34px;
+  }
+
+  .steps li {
+    gap: 10px;
+  }
+
+  .plans article {
+    grid-template-columns: 36px 1fr;
+    padding: 16px;
+  }
+
+  .plans small {
+    display: inline;
+  }
+
+  .aca-rule {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .aca-rule b {
+    width: 92px;
+    height: 36px;
+    flex-basis: 92px;
+  }
+
+  .benefits .section-head h2 {
+    font-size: 38px;
+    line-height: 1.04;
+  }
+
+  .benefits .section-head p {
+    font-size: 18px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .benefits-grid article {
+    min-height: 0;
+    padding: 22px 18px 18px 20px;
+    grid-template-columns: 58px 1fr;
+    column-gap: 24px;
+    border-radius: 42px 12px 12px 42px;
+  }
+
+  .benefits-grid article::before {
+    left: 82px;
+    top: 26px;
+    bottom: 26px;
+  }
+
+  .benefit-icon {
+    width: 46px;
+    height: 46px;
+    margin-top: 10px;
+    background-size: 24px auto;
+  }
+
+  .benefits-grid h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .benefits-grid ul {
+    font-size: 14px;
+  }
+
+  .benefits-stats {
+    margin-top: 28px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+}
+
+
+/* ===== benefits-icon-alignment.css ===== */
+/* Benefits cards — icon column aligned to Figma */
+
+.benefits-grid article {
+  grid-template-columns: 100px minmax(0, 1fr);
+  column-gap: 24px;
+  align-items: center;
+  padding: 24px 20px 24px 24px;
+}
+
+/* Remove the old floating divider. The divider now belongs to the icon column. */
+.benefits-grid article::before {
+  display: none !important;
+}
+
+.benefit-icon {
+  grid-column: 1;
+  width: 100%;
+  height: 96px;
+  margin: 0;
+  border-radius: 0;
+  border-right: 2px solid #e70033;
+  background: none !important;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 0;
+}
+
+.benefit-icon::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  border-radius: 50%;
+  background-color: #fec901;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .18);
+}
+
+.benefits-grid article:nth-child(1) .benefit-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28' fill='none'%3E%3Ccircle cx='14' cy='9' r='5' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M6 22c0-4.5 3.6-8 8-8s8 3.5 8 8' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(2) .benefit-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='22' viewBox='0 0 30 22' fill='none'%3E%3Cpath d='M5 14l2-5h16l2 5' stroke='%23111' stroke-width='2' stroke-linejoin='round'/%3E%3Crect x='3' y='10' width='24' height='7' rx='2' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='8' cy='18' r='2' fill='%23111'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%23111'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article:nth-child(3) .benefit-icon::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='26' viewBox='0 0 30 26' fill='none'%3E%3Ccircle cx='15' cy='8' r='4' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='7' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Ccircle cx='23' cy='10' r='3' stroke='%23111' stroke-width='2'/%3E%3Cpath d='M9 22c0-3.5 2.7-6 6-6s6 2.5 6 6' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M2 22c0-3 2.2-5 5-5M28 22c0-3-2.2-5-5-5' stroke='%23111' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.benefits-grid article > div:last-child {
+  grid-column: 2;
+  align-self: center;
+}
+
+@media (max-width: 720px) {
+  .benefits-grid article {
+    grid-template-columns: 82px minmax(0, 1fr);
+    column-gap: 18px;
+    padding: 20px 18px 20px 20px;
+  }
+
+  .benefit-icon {
+    height: 74px;
+    border-right-width: 2px;
+  }
+
+  .benefit-icon::before {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    background-size: 24px auto;
+  }
+}
+
+
+/* ===== referrals-desktop-tuning.css ===== */
+/* Referrals desktop tuning — values validated manually in DevTools */
+@media (min-width: 721px) {
+  .referrals {
+    height: 650px;
+  }
+
+  .referrals h2 {
+    font-size: 32px;
+    line-height: 1.05;
+    margin-top: -20px;
+    margin-bottom: 140px;
+  }
+
+  .referrals__bg {
+    background-position: center 20px;
+  }
+
+  .referrals__cap {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    border: 1px solid var(--yellow);
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-size: 18px;
+    margin-top: 40px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+
+/* ===== layout-responsive-v2.css ===== */
+/* Precise QA fixes: referrals validated values + prize/path responsive */
+
+/* Keep the value validated manually in DevTools. */
+.ref-pill strong {
+  margin-bottom: -50px;
+}
+
+/* Member path: use the supplied Interlagos fans image that already exists in the repo. */
+.path-section--member .path-image {
+  background: url('../assets/images/join-fans.webp') center center / cover no-repeat;
+}
+
+.path-section--member .path-image img {
+  opacity: 0;
+}
+
+/* Desktop: the four prize cards must occupy exactly the same total height as the large image. */
+@media (min-width: 1101px) {
+  .prize-grid {
+    grid-template-columns: 532px minmax(0, 1fr);
+    gap: 32px;
+    height: 588px;
+    align-items: stretch;
+  }
+
+  .prize-hero {
+    height: 100%;
+  }
+
+  .prize-cards {
+    height: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: unset;
+    align-content: stretch;
+    gap: 24px 16px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prize-card__media {
+    height: 150px;
+    flex: 0 0 150px;
+  }
+
+  .prize-card__copy {
+    flex: 1;
+  }
+
+  .path-grid {
+    grid-template-columns: minmax(0, 636px) minmax(0, 500px);
+  }
+}
+
+/* Tablet: remove fixed desktop widths and preserve proportions. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .shell {
+    width: min(var(--max), calc(100% - 64px));
+  }
+
+  .prize-grid {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    gap: 24px;
+    height: 520px;
+    align-items: stretch;
+  }
+
+  .prize-hero {
+    height: 100%;
+  }
+
+  .prize-cards {
+    height: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: unset;
+    align-content: stretch;
+    gap: 20px 14px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prize-card__media {
+    height: 124px;
+    flex: 0 0 124px;
+  }
+
+  .prize-card__copy {
+    flex: 1;
+    padding: 12px 13px 14px;
+  }
+
+  .prize-card h3 {
+    font-size: 17px;
+  }
+
+  .prize-card p {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .path-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+    gap: 24px;
+  }
+
+  .path-copy h2 {
+    font-size: clamp(38px, 4.4vw, 48px);
+  }
+
+  .path-copy > p {
+    font-size: 21px;
+  }
+
+  .steps b {
+    font-size: 18px;
+  }
+
+  .path-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 542;
+  }
+
+  .path-section--join .path-image {
+    height: auto;
+    aspect-ratio: 500 / 726;
+  }
+}
+
+/* Small tablet: stack both sections before they become cramped. */
+@media (min-width: 721px) and (max-width: 900px) {
+  .prize-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .prize-hero {
+    height: auto;
+    aspect-ratio: 532 / 588;
+  }
+
+  .prize-cards {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+  }
+
+  .prize-card {
+    height: auto;
+  }
+
+  .path-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .path-image,
+  .path-section--join .path-image {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+}
+
+/* Mobile: fully fluid and stacked. */
+@media (max-width: 720px) {
+  .prize-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .prize-hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 532 / 588;
+  }
+
+  .prize-cards {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .prize-card {
+    min-height: 0;
+    height: auto;
+  }
+
+  .prize-card__media {
+    height: 150px;
+  }
+
+  .path-section {
+    padding: 88px 0;
+  }
+
+  .path-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .path-copy h2 {
+    font-size: clamp(36px, 11vw, 48px);
+  }
+
+  .path-copy > p {
+    font-size: 20px;
+  }
+
+  .path-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 542;
+  }
+
+  .path-section--join .path-image {
+    height: auto;
+    aspect-ratio: 500 / 726;
+  }
+
+  .path-actions {
+    width: 100%;
+  }
+
+  .path-actions .action {
+    width: 100%;
+  }
+}
+
+
+/* ===== member-image-fix.css ===== */
+/* Path images — render the actual img asset, no CSS image substitution */
+.path-section--member .path-image,
+.path-section--join .path-image {
+  background: none !important;
+}
+
+.path-section--member .path-image img,
+.path-section--join .path-image img {
+  opacity: 1 !important;
+  content: normal !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ===== mobile-figma.css ===== */
+/* Mobile-only fidelity pass against Figma 393px frames. Desktop/tablet intentionally untouched. */
+@media (max-width: 480px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+
+  /* HERO — Figma mobile frame: 393 × 832 */
+  .hero {
+    height: clamp(700px, 211.7vw, 832px);
+    min-height: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: #111;
+  }
+
+  .hero__photo {
+    inset: 0;
+    background: url('../assets/images/hero-photo.png') 64% center / cover no-repeat;
+    z-index: -4;
+  }
+
+  .hero__red {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(128deg, rgba(205,10,8,.98), rgba(225,22,9,.9)),
+      url('../assets/images/red-wave.png') 42% 50% / cover no-repeat;
+    clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
+    z-index: -2;
+  }
+
+  .hero__red::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(125,0,0,.12), transparent 72%);
+  }
+
+  .hero .shell.hero__content {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 104px 18px 0;
+  }
+
+  .hero h1 {
+    width: 290px;
+    max-width: 74vw;
+    margin: 0 0 22px;
+    margin-top: 60px;
+    font-size: clamp(34px, 9.7vw, 38px);
+    line-height: .98;
+    letter-spacing: -.5px;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 0 3px 3px rgba(0,0,0,.28);
+  }
+
+  .hero__line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero__content > p {
+    width: 205px;
+    max-width: 54vw;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.03;
+    font-weight: 700;
+    text-shadow: 0 2px 2px rgba(0,0,0,.25);
+  }
+
+  .race-divider--hero {
+    left: -8%;
+    right: auto;
+    bottom: -18px;
+    width: 116%;
+    height: 84px;
+    transform: none;
+    background: url('../assets/graphics/hero-divider.svg') center / 100% 100% no-repeat;
+  }
+
+  /* GATE — Figma mobile frame: 393 × 726 */
+  .gate {
+    height: 726px;
+    min-height: 726px;
+    overflow: hidden;
+  }
+
+  .gate__inner {
+    padding-top: 37px;
+    text-align: center;
+  }
+
+  .gate__head {
+    width: min(358px, 100%);
+    margin-inline: auto;
+  }
+
+  .gate__head h2 {
+    width: 100%;
+    max-width: 358px;
+    margin: 0 auto 25px;
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+
+  .gate__actions {
+    width: 358px;
+    max-width: 100%;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .gate-btn {
+    min-height: 56px;
+    height: 56px;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .gate-btn--member {
+    width: 142px;
+    flex: 0 0 142px;
+  }
+
+  .gate-btn--join {
+    width: 200px;
+    flex: 0 1 200px;
+  }
+
+  .timeline {
+    width: 279px;
+    height: 252px;
+    margin: 75px auto 0;
+    margin-right: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 60px);
+    gap: 36px;
+  }
+
+  .timeline__rail {
+    left: 14px;
+    right: auto;
+    top: 14px;
+    bottom: auto;
+    width: 2px;
+    height: 192px;
+  }
+
+  .timeline__step {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    align-items: start;
+    text-align: left;
+  }
+
+  .timeline__step > div {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timeline__step h3 {
+    margin: 0 0 14px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .timeline__step p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  /* REFERRALS — Figma mobile composition is vertical, not a compressed desktop row. */
+  .referrals {
+    height: 1558px;
+    min-height: 1558px;
+    padding: 72px 0 40px;
+    overflow: hidden;
+  }
+
+  .referrals__bg {
+    inset: 0;
+    opacity: 1;
+    background-image: url('../assets/images/referral-track.png');
+    background-repeat: no-repeat;
+    background-size: auto 135%;
+    background-position: left center;
+  }
+
+  .referrals__bg::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.02) 35%, rgba(0,0,0,.08));
+  }
+
+  .referrals__inner {
+    height: 100%;
+    text-align: center;
+  }
+
+  .referrals h2 {
+    max-width: 330px;
+    margin: 0 auto 72px;
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .referral-laps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 120px;
+  }
+
+  .ref-pill {
+    position: relative;
+    width: clamp(160px, 46vw, 180px);
+    height: clamp(160px, 46vw, 180px);
+    flex: 0 0 auto;
+    padding: 12px;
+  }
+
+  .ref-pill::before {
+    inset: 7px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255,255,255,.5);
+  }
+
+  .ref-pill em {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .ref-pill b {
+    margin: 22px 0 0;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .ref-pill strong {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 8px 11px;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .ref-pill--middle {
+    transform: none;
+  }
+
+  .ref-arrow {
+    width: 58px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 58px;
+    line-height: 1;
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+
+  .referrals__cap {
+    position: static;
+    display: inline-block;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 86px auto 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 1.05;
+    white-space: normal;
+    max-width: 300px;
+  }
+
+  .referrals .race-divider--top {
+    height: 28px;
+  }
+
+  .referrals > .race-divider:not(.race-divider--top) {
+    display: none;
+  }
+}
+
+
+/* ===== mobile-finetune.css ===== */
+/* Mobile fine-tuning after visual QA. Desktop/tablet remain untouched. */
+@media (max-width: 480px) {
+  /* HERO: shorter overall, preserve checker texture and recover photo area. */
+  .hero {
+    height: clamp(570px, 150vw, 600px);
+  }
+
+  .hero__photo {
+    background-position: 60% center;
+  }
+
+  .hero__red {
+    width: 86%;
+    height: 100%;
+    background: url('../assets/images/hero-red-overlay.png') left center / 100% 100% no-repeat;
+    clip-path: none;
+  }
+
+  .hero__red::after {
+    display: none;
+  }
+
+  .hero .shell.hero__content {
+    padding-top: 74px;
+  }
+
+  .hero h1 {
+    font-size: clamp(37px, 10.5vw, 41px);
+    width: 300px;
+    max-width: 78vw;
+  }
+
+  .hero__content > p {
+    font-size: 16px;
+    width: 210px;
+    max-width: 56vw;
+  }
+
+  /* Give the finish copy a little more breathing room below November. */
+  .timeline__finish {
+    bottom: -58px;
+  }
+
+  /* REFERRALS: tighter vertical rhythm and true centered chevrons. */
+  .referrals {
+    height: 1120px;
+    min-height: 1120px;
+  }
+
+  /* Soften the enlarged raster background on mobile. */
+  .referrals__bg {
+    opacity: .72;
+  }
+
+  .referrals__bg::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.30) 48%, rgba(0,0,0,.24));
+  }
+
+  .referral-laps {
+    gap: 28px;
+  }
+
+  .ref-arrow {
+    position: relative;
+    width: 52px;
+    height: 46px;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    transform: none;
+    flex: 0 0 46px;
+    margin-inline: auto;
+  }
+
+  .ref-arrow::before,
+  .ref-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-right: 6px solid var(--yellow);
+    border-bottom: 6px solid var(--yellow);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .ref-arrow::before {
+    top: 0;
+  }
+
+  .ref-arrow::after {
+    top: 14px;
+  }
+
+  .referrals__cap {
+    margin-top: 38px;
+  }
+}
+
+
+/* ===== final-polish.css ===== */
+/* Final desktop polish based on the current manually-tuned main. */
+
+/* Recover a little of the desktop hero height without touching mobile. */
+@media (min-width: 769px) {
+  .hero {
+    height: 860px;
+  }
+
+  .hero__red {
+    height: 889px;
+  }
+}
+
+/* Referential membership price. */
+.plans article {
+  grid-template-columns: 38px auto auto 1fr;
+}
+
+.plan-price {
+  justify-self: end;
+  min-width: 150px;
+  padding: 8px 14px;
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  color: #111;
+  background: #fff;
+  font-family: var(--body);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Footer */
+.site-footer {
+  position: relative;
+  background: #050505;
+  color: #fff;
+  min-height: 150px;
+  padding: 50px 0 50px;
+  text-align: center;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #e70033 0%, #ff3b13 48%, #b9092f 100%);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-footer__logo {
+  width: 104px;
+  height: 40px;
+  margin: 0 auto 21px;
+  background: url("data:image/png;base64,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") center / contain no-repeat;
+}
+
+.site-footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.site-footer__links span,
+.site-footer__links a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible {
+  color: var(--yellow);
+}
+
+@media (max-width: 720px) {
+  .plans article {
+    grid-template-columns: 34px 1fr auto;
+    gap: 12px;
+  }
+
+  .plans article small {
+    grid-column: 2;
+  }
+
+  .plan-price {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    min-width: 106px;
+    padding: 8px 10px;
+    font-size: 18px;
+  }
+
+  .site-footer {
+    min-height: 118px;
+    padding: 23px 0 18px;
+  }
+
+  .site-footer__logo {
+    width: 90px;
+    height: 35px;
+    margin-bottom: 18px;
+  }
+
+  .site-footer__links {
+    gap: 13px;
+    font-size: 10px;
+  }
+}
+
+
+/* ===== hero-refinement.css ===== */
+/* ACA Interlagos — Hero refinement against Figma node 11:695 */
+
+@media (min-width: 769px) {
+  .hero {
+    height: 832px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #111;
+  }
+
+  /* Figma uses full-frame padding, not the site's max-width shell. */
+  .hero .shell.hero__content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 189px 56px 190px;
+  }
+
+  .hero__photo {
+    inset: 0;
+    background: url('../assets/images/hero-photo.png') center center / cover no-repeat;
+    z-index: -4;
+  }
+
+  /* Exact Figma overlay: the asset already contains the diagonal shape and transparency. */
+  .hero__red {
+    left: 0;
+    top: -29px;
+    width: 65.78125%;
+    height: 861px;
+    background: url('../assets/images/hero-red-overlay.png') left top / 100% 100% no-repeat;
+    clip-path: none;
+    z-index: -2;
+  }
+
+  .hero__red::after {
+    display: none;
+  }
+
+  .hero h1 {
+    width: 703px;
+    max-width: 703px;
+    margin: 0 0 32px;
+    font-size: 86px;
+    line-height: .98;
+    letter-spacing: 0;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  }
+
+  .hero__line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .hero__content > p {
+    width: 434px;
+    max-width: 434px;
+    margin: 0;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-shadow: 0 4px 2px rgba(0, 0, 0, .25);
+  }
+
+  /* Figma node 11:702 — use the actual curved checker asset, not a CSS pattern. */
+  .race-divider--hero {
+    left: -7.34375%;
+    right: auto;
+    bottom: -41px;
+    width: 108.828125%;
+    height: 229px;
+    transform: none;
+    background: url('../assets/graphics/hero-divider.svg') center / 100% 100% no-repeat;
+  }
+}

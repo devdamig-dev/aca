@@ -32,7 +32,7 @@
       <div class="shell site-footer__inner">
         <div class="site-footer__logo" role="img" aria-label="Automóvil Club Argentino"></div>
         <div class="site-footer__links">
-          <span>Bases y Condiciones</span>
+          <a href="https://www.aca.org.ar/condiciones/campana/viaja-a-interlagos/" target="_blank" rel="noopener noreferrer">Bases y Condiciones</a>
           <a href="https://www.aca.org.ar/condiciones/politica-de-privacidad/" target="_blank" rel="noopener noreferrer">Políticas de privacidad</a>
         </div>
       </div>`;
