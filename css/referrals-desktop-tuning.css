@@ -7,6 +7,10 @@
     margin-bottom: 80px;
   }
 
+  .referrals__bg {
+    background-position: center 24px;
+  }
+
   .referrals__cap {
     position: absolute;
     left: 50%;
