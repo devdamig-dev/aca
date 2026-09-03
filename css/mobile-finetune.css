@@ -36,15 +36,24 @@
     max-width: 56vw;
   }
 
-  /* Move the finish copy DOWN, away from the November text. */
+  /* Give the finish copy a little more breathing room below November. */
   .timeline__finish {
-    bottom: -44px;
+    bottom: -58px;
   }
 
   /* REFERRALS: tighter vertical rhythm and true centered chevrons. */
   .referrals {
     height: 1120px;
     min-height: 1120px;
+  }
+
+  /* Soften the enlarged raster background on mobile. */
+  .referrals__bg {
+    opacity: .72;
+  }
+
+  .referrals__bg::after {
+    background: linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.30) 48%, rgba(0,0,0,.24));
   }
 
   .referral-laps {
