@@ -88,7 +88,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 /* EUROSTILE LT STD */
 @font-face {
   font-family: "ACA Eurostile";
-  src: local("Eurostile LT Std Bold"),
+  src: url("../assets/fonts/eurostile-bold.woff2") format("woff2"),
+       url("../assets/fonts/eurostile-bold.woff") format("woff"),
+       local("Eurostile LT Std Bold"),
        local("EurostileLTStd-Bold"),
        local("Eurostile LT Std");
   font-style: normal;
@@ -98,7 +100,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Eurostile";
-  src: local("Eurostile LT Std Bold Oblique"),
+  src: url("../assets/fonts/eurostile-bold-oblique.woff2") format("woff2"),
+       url("../assets/fonts/eurostile-bold-oblique.woff") format("woff"),
+       local("Eurostile LT Std Bold Oblique"),
        local("EurostileLTStd-BoldOblique"),
        local("Eurostile LT Std Oblique"),
        local("EurostileLTStd-Oblique");
@@ -110,7 +114,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 /* FUTURA STD */
 @font-face {
   font-family: "ACA Futura";
-  src: local("Futura Std Light"),
+  src: url("../assets/fonts/futura-light.woff2") format("woff2"),
+       url("../assets/fonts/futura-light.woff") format("woff"),
+       local("Futura Std Light"),
        local("FuturaStd-Light"),
        local("Futura LT Light"),
        local("Futura Light");
@@ -121,7 +127,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: local("Futura Std Book"),
+  src: url("../assets/fonts/futura-book.woff2") format("woff2"),
+       url("../assets/fonts/futura-book.woff") format("woff"),
+       local("Futura Std Book"),
        local("FuturaStd-Book"),
        local("Futura Std"),
        local("FuturaStd"),
@@ -133,7 +141,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: local("Futura Std Medium"),
+  src: url("../assets/fonts/futura-medium.woff2") format("woff2"),
+       url("../assets/fonts/futura-medium.woff") format("woff"),
+       local("Futura Std Medium"),
        local("FuturaStd-Medium"),
        local("Futura Medium");
   font-style: normal;
@@ -143,7 +153,9 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: local("Futura Std Bold"),
+  src: url("../assets/fonts/futura-bold.woff2") format("woff2"),
+       url("../assets/fonts/futura-bold.woff") format("woff"),
+       local("Futura Std Bold"),
        local("FuturaStd-Bold"),
        local("Futura Bold");
   font-style: normal;
