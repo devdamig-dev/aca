@@ -1,0 +1,54 @@
+/* Mobile fine-tuning after visual QA. Desktop/tablet remain untouched. */
+@media (max-width: 480px) {
+  .hero {
+    height: clamp(610px, 165vw, 650px);
+  }
+
+  .hero__red {
+    background: url('../assets/images/hero-red-overlay.png') left center / auto 100% no-repeat;
+    clip-path: none;
+  }
+
+  .hero__red::after {
+    display: none;
+  }
+
+  .hero .shell.hero__content {
+    padding-top: 88px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10.2vw, 40px);
+    width: 300px;
+    max-width: 78vw;
+  }
+
+  .hero__content > p {
+    font-size: 16px;
+    width: 210px;
+    max-width: 56vw;
+  }
+
+  .timeline__finish {
+    bottom: -14px;
+  }
+
+  .referrals {
+    height: 1260px;
+    min-height: 1260px;
+  }
+
+  .referral-laps {
+    gap: 60px;
+  }
+
+  .ref-arrow {
+    width: 68px;
+    height: 58px;
+    font-size: 72px;
+  }
+
+  .referrals__cap {
+    margin-top: 58px;
+  }
+}
