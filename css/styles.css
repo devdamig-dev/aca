@@ -88,8 +88,8 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 /* EUROSTILE LT STD */
 @font-face {
   font-family: "ACA Eurostile";
-  src: url("../assets/fonts/eurostile-bold.woff2") format("woff2"),
-       url("../assets/fonts/eurostile-bold.woff") format("woff"),
+  src: url("../fonts/eurostileltstd-bold.woff2") format("woff2"),
+       url("../fonts/eurostileltstd-bold.woff") format("woff"),
        local("Eurostile LT Std Bold"),
        local("EurostileLTStd-Bold"),
        local("Eurostile LT Std");
@@ -100,8 +100,7 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Eurostile";
-  src: url("../assets/fonts/eurostile-bold-oblique.woff2") format("woff2"),
-       url("../assets/fonts/eurostile-bold-oblique.woff") format("woff"),
+  src: url("../fonts/eurostileltstd boldoblique.woff2") format("woff2"),
        local("Eurostile LT Std Bold Oblique"),
        local("EurostileLTStd-BoldOblique"),
        local("Eurostile LT Std Oblique"),
@@ -114,8 +113,8 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 /* FUTURA STD */
 @font-face {
   font-family: "ACA Futura";
-  src: url("../assets/fonts/futura-light.woff2") format("woff2"),
-       url("../assets/fonts/futura-light.woff") format("woff"),
+  src: url("../fonts/FuturaStdLight.woff2") format("woff2"),
+       url("../fonts/FuturaStdLight.woff") format("woff"),
        local("Futura Std Light"),
        local("FuturaStd-Light"),
        local("Futura LT Light"),
@@ -127,8 +126,8 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: url("../assets/fonts/futura-book.woff2") format("woff2"),
-       url("../assets/fonts/futura-book.woff") format("woff"),
+  src: url("../fonts/FuturaStdMedium.woff2") format("woff2"),
+       url("../fonts/FuturaStdMedium.woff") format("woff"),
        local("Futura Std Book"),
        local("FuturaStd-Book"),
        local("Futura Std"),
@@ -141,8 +140,8 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: url("../assets/fonts/futura-medium.woff2") format("woff2"),
-       url("../assets/fonts/futura-medium.woff") format("woff"),
+  src: url("../fonts/FuturaStdMedium.woff2") format("woff2"),
+       url("../fonts/FuturaStdMedium.woff") format("woff"),
        local("Futura Std Medium"),
        local("FuturaStd-Medium"),
        local("Futura Medium");
@@ -153,8 +152,8 @@ img{max-width:100%}h1,h2,h3,p{margin-top:0}button{cursor:pointer}
 
 @font-face {
   font-family: "ACA Futura";
-  src: url("../assets/fonts/futura-bold.woff2") format("woff2"),
-       url("../assets/fonts/futura-bold.woff") format("woff"),
+  src: url("../fonts/FuturaStdBold.woff2") format("woff2"),
+       url("../fonts/FuturaStdBold.woff") format("woff"),
        local("Futura Std Bold"),
        local("FuturaStd-Bold"),
        local("Futura Bold");
@@ -215,6 +214,14 @@ h2,
 
 .hero h1 {
   font-style: italic;
+}
+
+/* Preserve Eurostile inside campaign headings/highlights. */
+h1 *,
+h2 *,
+.hero__content > p *,
+.prize-hero__copy strong * {
+  font-family: inherit !important;
 }
 
 /* Pesos Futura según el Figma. */
