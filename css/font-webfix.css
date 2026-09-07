@@ -90,4 +90,10 @@
     font-size: 26px !important;
     line-height: 1.04 !important;
   }
+
+  /* The mobile timeline is intentionally shifted slightly to the right.
+     Keep the finish label visually centered in the viewport instead of the shifted timeline. */
+  .timeline__finish {
+    left: calc(50% - 8px) !important;
+  }
 }
