@@ -1,0 +1,60 @@
+/* ACA Interlagos — webfont compatibility fix
+   The existing .woff2 files are not real WOFF2 containers; use the valid WOFF files.
+   A separate family name avoids collisions with the previous @font-face declarations. */
+
+@font-face {
+  font-family: "ACA Eurostile Web";
+  src: url("../fonts/eurostileltstd-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura Web";
+  src: url("../fonts/FuturaStdLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura Web";
+  src: url("../fonts/FuturaStdMedium.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura Web";
+  src: url("../fonts/FuturaStdMedium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ACA Futura Web";
+  src: url("../fonts/FuturaStdBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --display: "ACA Eurostile Web", "Eurostile LT Std", Eurostile, "Arial Black", "Arial Narrow", Arial, sans-serif;
+  --body: "ACA Futura Web", "Futura Std", Futura, "Avenir Next", Arial, sans-serif;
+  --aca-eurostile: "ACA Eurostile Web", "Eurostile LT Std", Eurostile, "Arial Black", "Arial Narrow", Arial, sans-serif;
+  --aca-futura: "ACA Futura Web", "Futura Std", Futura, "Avenir Next", Arial, sans-serif;
+}
+
+/* There is no valid oblique webfont in the current package.
+   Use the valid Eurostile Bold WOFF and let the browser synthesize the slant. */
+.hero h1,
+.hero h1 .hero__line,
+.hero h1 em {
+  font-family: var(--aca-eurostile) !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+}
