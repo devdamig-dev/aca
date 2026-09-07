@@ -1,0 +1,32 @@
+/* ACA Interlagos — mobile heading rhythm test */
+@media (max-width: 720px) {
+  .gate__head h2,
+  .section-head h2,
+  .path-copy h2 {
+    font-size: 40px !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.6px !important;
+  }
+
+  .contact h2 {
+    font-size: 38px !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .benefits .section-head h2 {
+    font-size: 34px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.4px !important;
+  }
+
+  .ref-intro h2 {
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+  }
+
+  .referrals h2 {
+    font-size: 26px !important;
+    line-height: 1.04 !important;
+  }
+}
